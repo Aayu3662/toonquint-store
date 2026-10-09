@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "virtual:content": [
+        "./src/content/index.ts"
+      ],
+      "@airo/content": [
+        "./src/content/content-lib.tsx"
+      ]
+    },
+    "baseUrl": "."
+  },
+  "include": [
+    "src",
+    "vite.config.ts"
+  ]
+}
