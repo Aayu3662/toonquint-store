@@ -5,6 +5,8 @@ import { home } from 'virtual:content';
 import { products } from 'virtual:content';
 import { ContentListContext } from '@airo/content';
 import { ExternalLink } from 'lucide-react';
+import { siteMeta } from '@/lib/site-meta';
+import { generateWebSiteSchema, generateOrganizationSchema, generateProductListSchema } from '@/lib/schema-org';
 
 // ─── Starburst SVG decoration ───────────────────────────────────────────────
 function Starburst({ size = 60, color = '#FFE600', className = '', style = {} }: {
@@ -48,19 +50,35 @@ function HalftoneBg({ color = '#ffffff', opacity = 0.08 }: { color?: string; opa
 }
 
 export default function HomePage() {
-  const siteUrl = 'https://toonquint.store';
+  const siteUrl = siteMeta.url;
+  const webSiteSchema = generateWebSiteSchema();
+  const orgSchema = generateOrganizationSchema();
+  const productListSchema = generateProductListSchema(products);
 
   return (
     <>
       <Helmet>
-        <title>Toonquint — Anime & Cartoon Merch Store</title>
-        <meta name="description" content="Shop anime and cartoon merchandise at Toonquint — hoodies, accessories, collectibles and more for fans who live the culture." />
+        <title>Toonquint — Anime & Cartoon Merch Store | Apparel, Figures & Collectibles</title>
+        <meta name="description" content="Shop curated anime and cartoon merchandise at Toonquint — oversized hoodies, collectible figures, kawaii backpacks, graphic tees, ceramic cups, and pins." />
         <link rel="canonical" href={siteUrl} />
         <meta property="og:title" content="Toonquint — Anime & Cartoon Merch Store" />
-        <meta property="og:description" content="Shop anime and cartoon merchandise at Toonquint — hoodies, accessories, collectibles and more." />
+        <meta property="og:description" content="Discover curated anime streetwear, authentic collectibles, and lifestyle accessories for fans who live the culture." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={siteUrl} />
+        <meta property="og:image" content={`${siteUrl}/airo-assets/images/logo/horizontal`} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Toonquint — Anime & Cartoon Merch Store" />
+        <meta name="twitter:description" content="Curated anime merchandise: oversized hoodies, scale figures, backpacks, and enamel pins." />
+        <meta name="robots" content="index, follow" />
+        <script type="application/ld+json">
+          {JSON.stringify(webSiteSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(orgSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(productListSchema)}
+        </script>
       </Helmet>
 
       <main>
@@ -310,7 +328,7 @@ export default function HomePage() {
                           className="mt-1 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-sm border-2 border-foreground"
                           style={{ background: '#1A1040', color: '#FFE600', fontFamily: 'var(--font-sans)' }}
                         >
-                          Buy Now
+                          View on {product.marketplace}
                           <ExternalLink size={14} />
                         </motion.a>
                       </div>
@@ -391,6 +409,32 @@ export default function HomePage() {
                   </Link>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── BUYER'S GUIDE FEATURE ────────────────────────────────────── */}
+        <section className="py-16 bg-[#160D35] border-t-4 border-b-4 border-foreground text-white">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="bg-[#241552] p-8 md:p-10 rounded-3xl border-4 border-[#FFE600] flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-3 text-center md:text-left">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-[#FFE600] text-[#FFE600]">
+                  Collector Resources
+                </span>
+                <h3 className="text-2xl md:text-3xl font-bold" style={{ fontFamily: 'var(--font-heading)' }}>
+                  The Anime Merch & Collectibles Buyer's Guide
+                </h3>
+                <p className="text-sm text-[#C0B8E8] max-w-xl">
+                  Wondering how to spot bootlegs, choose scale figure sizes, or care for oversized anime streetwear hoodies? Read our comprehensive collector advice.
+                </p>
+              </div>
+              <Link
+                to="/guides/anime-merchandise-guide"
+                className="shrink-0 px-8 py-3.5 rounded-full font-bold text-sm border-2 border-foreground transition-all duration-150 hover:scale-105"
+                style={{ background: '#FFE600', color: '#1A1040', fontFamily: 'var(--font-sans)' }}
+              >
+                Read Guide
+              </Link>
             </div>
           </div>
         </section>

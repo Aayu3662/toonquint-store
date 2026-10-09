@@ -5,6 +5,9 @@ import { shop } from 'virtual:content';
 import { products } from 'virtual:content';
 import { ContentListContext } from '@airo/content';
 import { ExternalLink } from 'lucide-react';
+import { Link } from 'react-router';
+import { siteMeta } from '@/lib/site-meta';
+import { generateProductListSchema, generateBreadcrumbSchema } from '@/lib/schema-org';
 
 function Starburst({ size = 40, color = '#FFE600' }: { size?: number; color?: string }) {
   const pts = Array.from({ length: 16 }, (_, i) => {
@@ -28,18 +31,35 @@ const CATEGORIES = [
 
 export default function ShopPage() {
   const [activeCategory, setActiveCategory] = useState('all');
+  const shopUrl = `${siteMeta.url}/shop`;
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Shop', url: '/shop' },
+  ];
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+  const productListSchema = generateProductListSchema(products);
 
   return (
     <>
       <Helmet>
-        <title>Shop — Toonquint</title>
-        <meta name="description" content="Browse all anime and cartoon merchandise at Toonquint — hoodies, accessories, collectibles, figures, and more." />
-        <link rel="canonical" href="https://toonquint.store/shop" />
-        <meta property="og:title" content="Shop — Toonquint" />
-        <meta property="og:description" content="Browse all anime and cartoon merchandise at Toonquint." />
+        <title>Curated Anime Merchandise Catalog — Toonquint</title>
+        <meta name="description" content="Browse curated anime and cartoon merchandise at Toonquint — oversized hoodies, collectible figures, kawaii daypacks, and hard enamel pins." />
+        <link rel="canonical" href={shopUrl} />
+        <meta property="og:title" content="Curated Anime Merchandise Catalog — Toonquint" />
+        <meta property="og:description" content="Browse curated anime and cartoon merchandise at Toonquint — hoodies, accessories, collectibles, figures, and pins." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://toonquint.store/shop" />
+        <meta property="og:url" content={shopUrl} />
+        <meta property="og:image" content={`${siteMeta.url}/airo-assets/images/logo/horizontal`} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Curated Anime Merchandise Catalog — Toonquint" />
+        <meta name="twitter:description" content="Browse curated anime merchandise: oversized hoodies, collectible figure sets, daypacks, and enamel pins." />
+        <meta name="robots" content="index, follow" />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(productListSchema)}
+        </script>
       </Helmet>
 
       <main>
@@ -203,7 +223,7 @@ export default function ShopPage() {
                           className="mt-1 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-sm border-2 border-foreground"
                           style={{ background: '#1A1040', color: '#FFE600', fontFamily: 'var(--font-sans)' }}
                         >
-                          Buy Now
+                          View on {product.marketplace}
                           <ExternalLink size={14} />
                         </motion.a>
                       </div>
@@ -215,7 +235,10 @@ export default function ShopPage() {
 
             {/* Affiliate disclosure */}
             <p className="mt-12 text-center text-xs" style={{ color: '#9CA3AF', fontFamily: 'var(--font-sans)' }}>
-              * Some links on this page are affiliate links. Toonquint may earn a commission when you buy through them, at no extra cost to you.
+              * Links on this page are affiliate links. When you make a purchase through them, Toonquint may earn a referral fee at no extra cost to you.{' '}
+              <Link to="/affiliate-disclosure" className="underline hover:text-white transition-colors">
+                Learn more in our Affiliate Disclosure
+              </Link>.
             </p>
           </div>
         </section>

@@ -1,0 +1,26 @@
+# Robots.txt for Toonquint (https://toonquint.store)
+# Configured for standard search engines and AI search discovery bots
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://toonquint.store/sitemap.xml
