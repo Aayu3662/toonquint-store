@@ -2,8 +2,11 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from '@dr.pogodin/react-helmet';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 import App from './App';
 import './styles/globals.css';
+
+injectSpeedInsights();
 
 const queryClient = new QueryClient({
   defaultOptions: {
