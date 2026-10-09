@@ -22,7 +22,8 @@ export const pages = {
         "Enamel Pins",
         "Plushies",
         "Stickers",
-        "Caps"
+        "Caps",
+        "Ceramic Mugs"
       ]
     },
     featuredProducts: {
@@ -160,6 +161,17 @@ export const data = {
       badge: "Cute",
       category: "collectibles",
       image: "/airo-assets/images/pages/home/category-collectibles",
+      affiliateUrl: "https://www.amazon.in",
+      marketplace: "Amazon"
+    },
+    {
+      id: "7",
+      name: "Anime Chibi Ceramic Cup",
+      description: "Premium 350ml ceramic coffee mug with durable anime graphic print. Microwave & dishwasher safe.",
+      price: "₹449",
+      badge: "Trending",
+      category: "accessories",
+      image: "/airo-assets/images/products/anime-mug.jpg",
       affiliateUrl: "https://www.amazon.in",
       marketplace: "Amazon"
     }
