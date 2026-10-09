@@ -27,6 +27,7 @@ const CATEGORIES = [
   { value: 'apparel', label: 'Apparel' },
   { value: 'accessories', label: 'Accessories' },
   { value: 'collectibles', label: 'Collectibles' },
+  { value: 'ebooks', label: 'Ebooks & Guides' },
 ];
 
 export default function ShopPage() {

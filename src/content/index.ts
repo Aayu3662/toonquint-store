@@ -174,6 +174,83 @@ export const data = {
       image: "/airo-assets/images/products/anime-mug.jpg",
       affiliateUrl: "https://www.amazon.in",
       marketplace: "Amazon"
+    },
+    {
+      id: "8",
+      name: "Manga XXL Desk Gaming Mat",
+      description: "900x400mm waterproof speed-weave desk mousepad with precision stitched edges and anti-slip rubber base.",
+      price: "₹699",
+      badge: "Top Rated",
+      category: "accessories",
+      image: "/airo-assets/images/products/desk-mat.jpg",
+      affiliateUrl: "https://www.amazon.in",
+      marketplace: "Amazon"
+    },
+    {
+      id: "9",
+      name: "Anime Character LED Acrylic Lamp",
+      description: "16 RGB color night lamp with wireless touch remote, optical acrylic engraving, and dual USB/battery power.",
+      price: "₹899",
+      badge: "Cool Tech",
+      category: "collectibles",
+      image: "/airo-assets/images/products/led-lamp.jpg",
+      affiliateUrl: "https://www.amazon.in",
+      marketplace: "Amazon"
+    },
+    {
+      id: "10",
+      name: "Embroidered Cloud Knit Beanie",
+      description: "Unisex ribbed winter skull cap with premium high-density cloud embroidery. Soft acrylic knit for all-day comfort.",
+      price: "₹499",
+      badge: "Streetwear",
+      category: "apparel",
+      image: "/airo-assets/images/products/beanie.jpg",
+      affiliateUrl: "https://www.flipkart.com",
+      marketplace: "Flipkart"
+    },
+    {
+      id: "11",
+      name: "Aesthetic Anime Wall Art Cards (50 Pcs)",
+      description: "50-piece curated postcard collage kit on 300 GSM matte cardstock for bedroom and dorm room wall displays.",
+      price: "₹399",
+      badge: "Room Decor",
+      category: "collectibles",
+      image: "/airo-assets/images/products/wall-collage.jpg",
+      affiliateUrl: "https://www.amazon.in",
+      marketplace: "Amazon"
+    },
+    {
+      id: "12",
+      name: "The Anime Collector's Field Guide (PDF Ebook)",
+      description: "68-page comprehensive handbook on figure scale evaluations, bootleg detection, and acrylic cabinet display care.",
+      price: "₹199",
+      badge: "Digital Book",
+      category: "ebooks",
+      image: "/airo-assets/images/products/ebook-collector.jpg",
+      affiliateUrl: "/ebooks",
+      marketplace: "Toonquint Digital"
+    },
+    {
+      id: "13",
+      name: "Mastering Manga Character Archetypes (PDF Ebook)",
+      description: "84-page deep dive into Shonen protagonist formulas, deuteragonist foil dynamics, and visual silhouette design.",
+      price: "₹249",
+      badge: "Digital Book",
+      category: "ebooks",
+      image: "/airo-assets/images/products/ebook-archetypes.jpg",
+      affiliateUrl: "/ebooks",
+      marketplace: "Toonquint Digital"
+    },
+    {
+      id: "14",
+      name: "Anime Streetwear Styling Guide (PDF Ebook)",
+      description: "52-page guide on GSM garment fabric weights, oversized drop proportions, and graphic print wash preservation.",
+      price: "₹149",
+      badge: "Digital Book",
+      category: "ebooks",
+      image: "/airo-assets/images/products/ebook-streetwear.jpg",
+      affiliateUrl: "/ebooks",
+      marketplace: "Toonquint Digital"
     }
   ]
 };

@@ -8,9 +8,10 @@ export default function Header() {
 
   const navItems = [
     { href: '/shop', label: 'Shop' },
-    { href: '/guides/anime-merchandise-guide', label: 'Buyer’s Guide' },
+    { href: '/ebooks', label: 'Ebooks' },
+    { href: '/articles', label: 'Face-Offs' },
+    { href: '/guides/anime-merchandise-guide', label: 'Buying Guide' },
     { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
   ];
 
   return (

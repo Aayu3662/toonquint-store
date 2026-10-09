@@ -5,7 +5,9 @@ export default function Footer() {
 
   const navLinks = [
     { href: '/shop', label: 'Shop All Merch' },
-    { href: '/guides/anime-merchandise-guide', label: 'Buyer’s Guide' },
+    { href: '/ebooks', label: 'Digital Ebooks' },
+    { href: '/articles', label: 'Character Face-Offs' },
+    { href: '/guides/anime-merchandise-guide', label: 'Collector’s Guide' },
     { href: '/about', label: 'About Toonquint' },
     { href: '/contact', label: 'Contact Us' },
   ];
@@ -18,8 +20,9 @@ export default function Footer() {
 
   const categories = [
     { href: '/shop?cat=apparel', label: 'Apparel (Hoodies & Tees)' },
-    { href: '/shop?cat=accessories', label: 'Accessories (Pins, Bags, Cups)' },
-    { href: '/shop?cat=collectibles', label: 'Collectibles & Figures' },
+    { href: '/shop?cat=accessories', label: 'Accessories (Pins, Mats, Cups)' },
+    { href: '/shop?cat=collectibles', label: 'Collectibles & Lamps' },
+    { href: '/shop?cat=ebooks', label: 'Ebooks & Digital Guides' },
   ];
 
   return (

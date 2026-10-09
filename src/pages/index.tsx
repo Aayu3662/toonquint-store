@@ -4,9 +4,11 @@ import { motion } from 'motion/react';
 import { home } from 'virtual:content';
 import { products } from 'virtual:content';
 import { ContentListContext } from '@airo/content';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Swords, BookOpen, ArrowRight } from 'lucide-react';
 import { siteMeta } from '@/lib/site-meta';
 import { generateWebSiteSchema, generateOrganizationSchema, generateProductListSchema } from '@/lib/schema-org';
+import { articles } from '@/content/articles';
+import { ebooks } from '@/content/ebooks';
 
 // ─── Starburst SVG decoration ───────────────────────────────────────────────
 function Starburst({ size = 60, color = '#FFE600', className = '', style = {} }: {
@@ -435,6 +437,131 @@ export default function HomePage() {
               >
                 Read Guide
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CHARACTER FACE-OFFS SECTION ───────────────────────────────── */}
+        <section className="py-20 relative overflow-hidden" style={{ background: '#1A1040' }}>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 border border-[#FFE600] text-[#FFE600]">
+                Original Character Critiques
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+                Anime Character Face-Offs
+              </h2>
+              <p className="text-sm text-[#C0B8E8]">
+                Deep narrative analysis, power systems, and psychological breakdowns comparing iconic anime legends—written under fair-use commentary.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {articles.map((art) => (
+                <div
+                  key={art.slug}
+                  className="bg-[#241552] rounded-3xl border-4 border-[#3D297A] overflow-hidden flex flex-col justify-between hover:border-[#FFE600] transition-all"
+                >
+                  <div className="relative aspect-video overflow-hidden">
+                    <img src={art.image} alt={art.title} className="w-full h-full object-cover" />
+                    <div className="absolute top-3 left-3 bg-[#1A1040]/90 text-[#FFE600] text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/20">
+                      {art.category}
+                    </div>
+                  </div>
+                  <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-lg text-white mb-2 line-clamp-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                        <Link to={`/articles/${art.slug}`} className="hover:text-[#FFE600] transition-colors">
+                          {art.title}
+                        </Link>
+                      </h3>
+                      <p className="text-xs text-[#C0B8E8] line-clamp-2">
+                        {art.excerpt}
+                      </p>
+                    </div>
+                    <Link
+                      to={`/articles/${art.slug}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFE600] hover:underline pt-2"
+                    >
+                      Read Face-Off <ArrowRight size={13} />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Link
+                to="/articles"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-sm border-2 border-[#FFE600] text-[#FFE600] hover:bg-[#FFE600] hover:text-[#1A1040] transition-all"
+              >
+                <Swords size={16} /> View All Character Studies
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ── EBOOKS SHOWCASE ───────────────────────────────────────────── */}
+        <section className="py-20 bg-[#120B29] border-t-4 border-[#3D297A] text-white">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+              <div>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 border border-[#FFE600] text-[#FFE600]">
+                  Digital Publications
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold" style={{ fontFamily: 'var(--font-heading)' }}>
+                  Toonquint Ebook Library
+                </h2>
+                <p className="text-sm text-[#C0B8E8] max-w-xl mt-2">
+                  Download our original collector handbooks and character archetype studies in DRM-free PDF formats.
+                </p>
+              </div>
+              <Link
+                to="/ebooks"
+                className="shrink-0 inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-sm transition-all hover:scale-105"
+                style={{ background: '#FFE600', color: '#1A1040' }}
+              >
+                <BookOpen size={16} /> Explore All Ebooks
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {ebooks.map((bk) => (
+                <div
+                  key={bk.id}
+                  className="bg-[#241552] p-6 rounded-3xl border-2 border-[#3D297A] hover:border-[#FFE600] transition-all flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-black/30">
+                      <img src={bk.coverImage} alt={bk.title} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFE600] bg-[#1A1040] px-2 py-0.5 rounded-full">
+                          {bk.badge}
+                        </span>
+                        <span className="text-xs text-[#A89FD6]">{bk.pages} Pages</span>
+                      </div>
+                      <h3 className="font-bold text-lg text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
+                        {bk.title}
+                      </h3>
+                      <p className="text-xs text-[#C0B8E8] line-clamp-2">
+                        {bk.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                    <span className="text-lg font-bold text-[#FFE600]">{bk.price}</span>
+                    <Link
+                      to="/ebooks"
+                      className="text-xs font-bold px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors"
+                    >
+                      View Ebook
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
