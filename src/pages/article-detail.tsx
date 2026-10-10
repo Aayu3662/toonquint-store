@@ -4,6 +4,7 @@ import { articles } from '@/content/articles';
 import { siteMeta } from '@/lib/site-meta';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/schema-org';
 import { Clock, Swords, ShieldAlert, ArrowLeft, CheckCircle2, ShoppingBag } from 'lucide-react';
+import AdSenseUnit from '@/components/AdSenseUnit';
 
 export default function ArticleDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -155,6 +156,9 @@ export default function ArticleDetailPage() {
             </div>
           </section>
 
+          {/* Ad Placement 1: Mid-article Ad */}
+          <AdSenseUnit className="my-10" />
+
           {/* Article Main Text Content */}
           <div className="space-y-10 text-[#E2DCF8] text-base md:text-lg leading-relaxed font-sans mb-12">
             {article.sections.map((sec, sIdx) => (
@@ -170,6 +174,9 @@ export default function ArticleDetailPage() {
               </section>
             ))}
           </div>
+
+          {/* Ad Placement 2: Pre-verdict Ad */}
+          <AdSenseUnit className="my-10" />
 
           {/* Verdict Box */}
           <section className="bg-gradient-to-r from-[#2D1F6E] to-[#432A99] p-8 rounded-3xl border-4 border-[#FFE600] space-y-3 mb-12 shadow-2xl">

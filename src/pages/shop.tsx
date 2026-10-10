@@ -8,6 +8,7 @@ import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router';
 import { siteMeta } from '@/lib/site-meta';
 import { generateProductListSchema, generateBreadcrumbSchema } from '@/lib/schema-org';
+import AdSenseUnit from '@/components/AdSenseUnit';
 
 function Starburst({ size = 40, color = '#FFE600' }: { size?: number; color?: string }) {
   const pts = Array.from({ length: 16 }, (_, i) => {
@@ -233,6 +234,9 @@ export default function ShopPage() {
                 })}
               </div>
             </ContentListContext>
+
+            {/* Ad Placement */}
+            <AdSenseUnit className="my-10" />
 
             {/* Affiliate disclosure */}
             <p className="mt-12 text-center text-xs" style={{ color: '#9CA3AF', fontFamily: 'var(--font-sans)' }}>

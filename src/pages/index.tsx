@@ -9,6 +9,7 @@ import { siteMeta } from '@/lib/site-meta';
 import { generateWebSiteSchema, generateOrganizationSchema, generateProductListSchema } from '@/lib/schema-org';
 import { articles } from '@/content/articles';
 import { ebooks } from '@/content/ebooks';
+import AdSenseUnit from '@/components/AdSenseUnit';
 
 // ─── Starburst SVG decoration ───────────────────────────────────────────────
 function Starburst({ size = 60, color = '#FFE600', className = '', style = {} }: {
@@ -565,6 +566,11 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* Ad Placement */}
+        <div className="container mx-auto px-4 py-8">
+          <AdSenseUnit />
+        </div>
 
         {/* ── COMMUNITY STRIP ──────────────────────────────────────────── */}
         <section className="relative overflow-hidden py-20" style={{ background: '#FF3D57' }}>

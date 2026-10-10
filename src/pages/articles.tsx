@@ -5,6 +5,7 @@ import { articles } from '@/content/articles';
 import { siteMeta } from '@/lib/site-meta';
 import { generateBreadcrumbSchema } from '@/lib/schema-org';
 import { Swords, Clock, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import AdSenseUnit from '@/components/AdSenseUnit';
 
 export default function ArticlesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -77,7 +78,7 @@ export default function ArticlesPage() {
           </div>
 
           {/* Category Filter */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -94,6 +95,9 @@ export default function ArticlesPage() {
               </button>
             ))}
           </div>
+
+          {/* AdSense Unit */}
+          <AdSenseUnit className="mb-12" />
 
           {/* Articles Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">

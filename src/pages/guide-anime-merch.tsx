@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { siteMeta } from '@/lib/site-meta';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/schema-org';
 import { ShieldCheck, Sparkles, Tag, CheckCircle2, AlertTriangle, ArrowRight } from 'lucide-react';
+import AdSenseUnit from '@/components/AdSenseUnit';
 
 export default function GuideAnimeMerchPage() {
   const pageUrl = `${siteMeta.url}/guides/anime-merchandise-guide`;
@@ -153,6 +154,9 @@ export default function GuideAnimeMerchPage() {
               </div>
             </section>
 
+            {/* Mid-guide Ad */}
+            <AdSenseUnit className="my-10" />
+
             {/* Section 3 */}
             <section className="space-y-4">
               <h2 className="text-2xl md:text-3xl font-bold text-[#FFE600]" style={{ fontFamily: 'var(--font-heading)' }}>
@@ -203,6 +207,9 @@ export default function GuideAnimeMerchPage() {
                 </div>
               </div>
             </section>
+
+            {/* Pre-CTA Ad */}
+            <AdSenseUnit className="my-10" />
 
             {/* CTA Box */}
             <section className="bg-gradient-to-r from-[#2D1F6E] to-[#432A99] p-8 rounded-2xl border-4 border-[#FFE600] text-center my-10">
